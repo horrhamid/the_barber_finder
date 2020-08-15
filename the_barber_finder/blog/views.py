@@ -10,10 +10,9 @@ def users_view(request):
     name = request.user.username
     print(name)
     person = Person.objects.filter(user=request.user)
-    print(person)
-    r = Barber.objects.filter(user=person)
-
-
+    # print(person)
+    if person:
+        r = Barber.objects.filter(user=person)
     # st = print(len(r))
     st = 1
     role = ''
