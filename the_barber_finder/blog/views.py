@@ -21,6 +21,7 @@ def users_view(request):
         else:
             role = "Customer"
     print("role :")
+    
     print(role)
     barbershops = BarberShop.objects.all()
 
