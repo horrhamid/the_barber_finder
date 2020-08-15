@@ -1,6 +1,6 @@
 # from django.shortcuts import render
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
 from .models import BarberShop, Barber, Person, Customer
 # Create your views here.
@@ -10,31 +10,26 @@ def users_view(request):
     name = None
     role = None
     name = request.user.username
+    print("user name is :")
+    print(name)
     if name:
-        print(name)
+        
         person = Person.objects.filter(user=request.user)
-        print(person[0])
-        r = Barber.objects.filter(user=person)
-
-
-        # st = print(len(r))
-        st = 1
-        role = ''
-        if st:
+        is_barber = Barber.objects.filter(user=person[0]).count()
+        if is_barber != 0:
             role = "Barber"
         else:
             role = "Customer"
-
-        print(role)
-        # if r[0]:
-        #     role = "Customer"
-        # else:
-        #     role = "Barber"
+    print("role :")
+    
+    print(role)
     barbershops = BarberShop.objects.all()
 
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
                                                       'role': role})
+
+
 def create_time_table(request):
     username = None
     barber_shop_id = None
@@ -47,10 +42,14 @@ def create_time_table(request):
     start_time = request.POST.get('start_time')
     end_time = request.POST.get('end_time')
     queryUser = User.objects.filter(user_name=username)
-    print (queryUser)
+    print(queryUser)
 
 
+def set_available_times(request):
+    #
+    return render(request, 'time-managing.html')
 
-    
-    
 
+def reserve_view(request):
+    #
+    return HttpResponse("IN RESERVE VIEW !!")
