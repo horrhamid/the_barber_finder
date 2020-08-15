@@ -72,7 +72,7 @@
         <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
         {% if role == "Barber" %}
         <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
-        <button class="navbar-item" onclick="location.href='{% url 'blog:set_av_time' %}'" type="submit" >Set Available</button>
+        <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:set_av_time' %}'" type="submit" >Set Available</button>
         {% endif %}
       </div>
         </div>
