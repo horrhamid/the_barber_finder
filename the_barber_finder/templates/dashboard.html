@@ -65,21 +65,16 @@
       <div class="flex-grow-1">
 
       </div>
-      <div class="username">
-        <p>Hi , {{ name }}</p>
+      <div class="username navbar-item">
+        <i>Hi, {{ name }}</i>
       </div>
-        <div class="username"  >
-        <button class="username" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
+      <div class="btn-group">
+        <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
+        {% if role == "Barber" %}
+        <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
+        {% endif %}
       </div>
         </div>
-      {% if role == "Barber" %}
-        <div class="username"  >
-        <button class="username" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
-      </div>
-      {% endif %}
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
   </div>
 </header>
