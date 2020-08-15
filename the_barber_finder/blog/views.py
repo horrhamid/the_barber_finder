@@ -11,21 +11,16 @@ def users_view(request):
     print(name)
     person = Person.objects.filter(user=request.user)
     print(person)
-    r = Barber.objects.filter(user=person.first())
-    print(len(r))
-    st = 2
-    try:
-        # print(r)
-        # print("in try")
-        st = 0
-    except:
-        st = 1
-        print("in exept")
+    r = Barber.objects.filter(user=person)
 
-    if st == 1 :
-        role = "Customer"
-    else:
+
+    # st = print(len(r))
+    st = 1
+    role = ''
+    if st:
         role = "Barber"
+    else:
+        role = "Customer"
 
     print(role)
     # if r[0]:
@@ -36,7 +31,7 @@ def users_view(request):
 
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
-                                                      'role':role,})
+                                                      'role': role})
 def create_time_table(request):
     username = None
     if request.user.is_authenticated():
