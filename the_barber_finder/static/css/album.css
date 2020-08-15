@@ -32,7 +32,10 @@ footer p {
   margin-bottom: .25rem;
 }
 
-.username {
+.navbar-item {
   color: white;
+}
+
+.username {
   margin-right: 20px;
 }
