@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Album example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      #outer
+      {
+        width:100%;
+        text-align: center;
+      }
+      .inner
+      {
+        display: inline-block;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/album.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
+            <img class="mb-4" src="../static/logo.png" alt=""  height="150" style="margin-left: -25px!important;margin-bottom: -75px!important;margin-top: -75px!important;">
+            <!-- <strong>Barbershop</strong> -->
+          </a>
+          <div class="flex-grow-1">
+
+          </div>
+          <div class="username">
+            Name
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class="row">
+            <div class="col-md-4">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-danger">00:00-00:20</button>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">00:20-00:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">00:40-00:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">01:00-01:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">01:20-01:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">01:40-01:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">02:00-02:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">02:20-02:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">02:40-02:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">03:00-03:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">03:20-03:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">03:40-03:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">04:00-04:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">04:20-04:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">04:40-04:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">05:00-05:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">05:20-05:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">05:40-05:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">06:00-06:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">06:20-06:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">06:40-06:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">07:00-07:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">07:20-07:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">07:40-07:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">08:00-08:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">08:20-08:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">08:40-08:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">09:00-09:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">09:20-09:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">09:40-09:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">10:00-10:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">10:20-10:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">10:40-10:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">11:00-11:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">11:20-11:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">11:40-11:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">12:00-12:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">12:20-12:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">12:40-12:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">13:00-13:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">13:20-13:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">13:40-13:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">14:00-14:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">14:20-14:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">14:40-14:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">15:00-15:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">15:20-15:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">15:40-15:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">16:00-16:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">16:20-16:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">16:40-16:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">17:00-17:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">17:20-17:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">17:40-17:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">18:00-18:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">18:20-18:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">18:40-18:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">19:00-19:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">19:20-19:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">19:40-19:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">20:00-20:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">20:20-20:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">20:40-20:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">21:00-21:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">21:20-21:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">21:40-21:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">22:00-22:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">22:20-22:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">22:40-22:59</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">23:00-23:20</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">23:20-23:40</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary">23:40-23:59</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+    </script>
+  </body>
+</html>
