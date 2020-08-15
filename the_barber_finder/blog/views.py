@@ -33,6 +33,9 @@ def check_barber(user):
     else:
         return False
 
+def set_av_time(request):
+    return render(request, "time-managing_2.html")
+
 def set_available_times(request):
     #
     username = None
@@ -41,10 +44,10 @@ def set_available_times(request):
         username = request.user
     else:
         return HttpResponse('barber Login needed!')
-    if request.POST.get('date') and request.POST.get('startTime') and request.POST.get('endTime'):
+    if request.POST.get('date') and request.POST.get('time1') and request.POST.get('time2'):
         date = request.POST.get('date')
-        start_time = request.POST.get('startTime')
-        end_time = request.POST.get('endTime')
+        start_time = request.POST.get('time1')
+        end_time = request.POST.get('time2')
         person = Person.objects.filter(user=username)
         barber = Barber.objects.filter(user=person[0])
         start_time+=":00"
@@ -58,14 +61,13 @@ def set_available_times(request):
         store = BarberShop.objects.filter(owner=barber[0])
         timeTable = TimeTable(barber=barber[0], store=store[0], start_time=start_time, end_time=end_time, date=date)
         timeTable.save()
-    return render(request, 'time-managing.html')
+    return HttpResponse("DONE !")
 
 
 def reserve_view(request):
-    # idi = request.POST
-    # print(idi)
+    shop = request.POST.get('custId')
+    print(shop)
     barber = Barber.objects.filter()
-
     return render(request, "reservation-choose-tim.html", context={'Barber': barber})
 
 
