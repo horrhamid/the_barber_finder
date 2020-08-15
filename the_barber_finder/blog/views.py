@@ -7,7 +7,10 @@ from .models import BarberShop, Barber, Person, Customer
 
 
 def users_view(request):
+    name = None
+    role = None
     name = request.user.username
+<<<<<<< HEAD
     print(name)
     person = Person.objects.filter(user=request.user)
     # print(person)
@@ -26,6 +29,28 @@ def users_view(request):
     #     role = "Customer"
     # else:
     #     role = "Barber"
+=======
+    if name:
+        print(name)
+        person = Person.objects.filter(user=request.user)
+        print(person[0])
+        r = Barber.objects.filter(user=person)
+
+
+        # st = print(len(r))
+        st = 1
+        role = ''
+        if st:
+            role = "Barber"
+        else:
+            role = "Customer"
+
+        print(role)
+        # if r[0]:
+        #     role = "Customer"
+        # else:
+        #     role = "Barber"
+>>>>>>> c369bdd19660f73dc6f20becfb11daf444fac648
     barbershops = BarberShop.objects.all()
 
     return render(request, 'dashboard.html', context={'name': name,
