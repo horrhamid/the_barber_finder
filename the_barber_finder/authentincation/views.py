@@ -50,11 +50,8 @@ def login_view2(request):
 
 
 def logout_view(request):
-    if request.method == 'POST':
-        logout(request)
-        return HttpResponse('Successfully Logged You Out Sir!')
-    else:
-        return HttpResponse('Invalid Method')
+    logout(request)
+    return HttpResponse('Successfully Logged You Out Sir!')
 
 
 def registration(request):
