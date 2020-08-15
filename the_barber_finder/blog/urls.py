@@ -6,4 +6,5 @@ app_name = 'blog'
 urlpatterns = [
     path('', users_view, name='Users'),
     path('auth/', include('authentincation.urls')),
+    ,
 ]
