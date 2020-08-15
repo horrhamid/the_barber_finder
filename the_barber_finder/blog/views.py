@@ -48,11 +48,14 @@ def set_available_times(request):
         end_time = request.POST.get('endTime')
         person = Person.objects.filter(user=username)
         barber = Barber.objects.filter(user=person[0])
+        start_time+=":00"
+        end_time+=":00"
         print(date)
         print(start_time)
         print(end_time)
         print(person)
         print(barber)
+        
         store = BarberShop.objects.filter(owner=barber[0])
         timeTable = TimeTable(barber=barber[0], store=store[0], start_time=start_time, end_time=end_time, date=date)
         timeTable.save()
