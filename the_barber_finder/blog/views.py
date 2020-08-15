@@ -51,5 +51,10 @@ def set_available_times(request):
 
 
 def reserve_view(request):
-    #
+    print("method =" + request.method)
+    # barber = Barber.objects.filter()
+    return HttpResponse("IN RESERVE VIEW !!")
+
+
+def choose_subtime(request):
     return HttpResponse("IN RESERVE VIEW !!")
