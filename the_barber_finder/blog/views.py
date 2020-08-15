@@ -60,8 +60,8 @@ def set_available_times(request):
 
 
 def reserve_view(request):
-    # idi = request.POST
-    # print(idi)
+    idi = request.POST.get('custId')
+    print(idi)
     barber = Barber.objects.filter()
 
     return render(request, "reservation-choose-tim.html", context={'Barber': barber})
