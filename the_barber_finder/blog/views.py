@@ -34,14 +34,19 @@ def users_view(request):
                                                       'role': role})
 def create_time_table(request):
     username = None
+    barber_shop_id = None
     if request.user.is_authenticated():
         username = request.user.username
-    barber = request.POST.get('barbername')
-    shop = request.POST.get('shopname')
+        barber_shop_id = request.session.get('shop_id', None)
+    barber_name = request.POST.get('barbername')
+    
     date = request.POST.get('date')
     start_time = request.POST.get('start_time')
     end_time = request.POST.get('end_time')
-    
+    queryUser = User.objects.filter(user_name=username)
+    print (queryUser)
+
+
 
     
     
