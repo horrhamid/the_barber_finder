@@ -41,14 +41,16 @@
 	<body class="text-center d-flex flex-column">
         {% csrf_token %}
 		<img class="mb-4" src="{% static 'logo.png' %}" alt="" width="400" style="margin-bottom: -75px!important;margin-top: -75px!important;">
-		<form class="form-main" method="post" action="{% url 'blog:authentication:register_view' %}">
-            {% csrf_token %}
-            <button  class="btn btn-lg btn-primary btn-block" name="regg" type="submit">Register</button>
-        </form>
-        <form class="form-main" method="post" action="{% url 'blog:authentication:login' %}">
-            {% csrf_token %}
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-		</form>
+		<div class="form-main">
+            <form class="form-main-buttons" method="post" action="{% url 'blog:authentication:register_view' %}">
+                {% csrf_token %}
+                <button  class="btn btn-lg btn-primary btn-block" name="regg" type="submit">Register</button>
+            </form>
+            <form class="form-main-buttons" method="post" action="{% url 'blog:authentication:login' %}">
+                {% csrf_token %}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            </form>
+		</div>
 	</body>
 </html>
