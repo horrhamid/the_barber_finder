@@ -60,9 +60,11 @@ def set_available_times(request):
 
 
 def reserve_view(request):
-    print("method =" + request.method)
-    # barber = Barber.objects.filter()
-    return HttpResponse("IN RESERVE VIEW !!")
+    # idi = request.POST
+    # print(idi)
+    barber = Barber.objects.filter()
+
+    return render(request, "reservation-choose-tim.html", context={'Barber': barber})
 
 
 def choose_subtime(request):
