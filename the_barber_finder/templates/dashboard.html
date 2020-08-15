@@ -107,7 +107,7 @@
               <div class="card-body">
               <p class="card-text">{{ x.name }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Reserve</button>
+                <button type="button" onclick="location.href='{% url 'blog:reservation' %}'" class="btn btn-sm btn-outline-secondary">Reserve</button>
                 <small class="text-muted">9 mins</small>
               </div>
             </div>
