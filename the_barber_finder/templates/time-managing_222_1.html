@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿{% load static %}
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,7 +10,8 @@
     <title>Album example · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+              integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
 
@@ -20,9 +22,9 @@
     <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'assets/dist/css/bootstrap.css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 
-    <script src="test.js"></script>
+    <script src="{% static 'css/test.js' %}"></script>
     <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
     
     <style>
@@ -42,7 +44,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="../static/css/album.css" rel="stylesheet">
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
   </head>
   <body>
     <header>

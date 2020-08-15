@@ -73,4 +73,5 @@ def reserve_view(request):
 
 
 def choose_subtime(request):
-    return HttpResponse("IN RESERVE VIEW !!")
+    dat = request.POST.get("date")
+    return render(request, "time-managing_222_1.html", context={'date': dat})
