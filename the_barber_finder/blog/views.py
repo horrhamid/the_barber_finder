@@ -10,16 +10,18 @@ def users_view(request):
     name = None
     role = None
     name = request.user.username
+    print("user name is :")
+    print(name)
     if name:
         
         person = Person.objects.filter(user=request.user)
-        is_barber = Barber.objects.filter(user=person)
-        if is_barber != '':
+        is_barber = Barber.objects.filter(user=person[0]).count()
+        if is_barber != 0:
             role = "Barber"
         else:
             role = "Customer"
-    print("user name is :")
-    print(name)
+    print("role :")
+    print(role)
     barbershops = BarberShop.objects.all()
 
     return render(request, 'dashboard.html', context={'name': name,
