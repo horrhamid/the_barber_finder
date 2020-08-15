@@ -21,7 +21,6 @@ def users_view(request):
 
     print(role)
     barbershops = BarberShop.objects.all()
-
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
                                                       'role': role})
@@ -66,10 +65,11 @@ def set_available_times(request):
 
 
 def reserve_view(request):
-    shop = request.POST.get('custId')
+    shop = request.POST.get('shop_id')
     print(shop)
-    barber = Barber.objects.filter()
-    return render(request, "reservation-choose-tim.html", context={'Barber': barber})
+    barberlist = BarberShop.objects.values_list('barbers').filter(id=shop)
+    print(barberlist)
+    return render(request, "reservation-choose-tim.html", context={'Barber': barberlist})
 
 
 def choose_subtime(request):
