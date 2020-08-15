@@ -72,7 +72,7 @@
         <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
         {% if role == "Barber" %}
         <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
-        <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:set_av_time' %}'" type="submit" >Set Available</button>
+        <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:set_time' %}'" type="submit" >Set Available</button>
         {% endif %}
       </div>
         </div>
@@ -86,28 +86,28 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-    {% csrf_token %}
-      <div class="row">
+    <div class="row">
           {% for x in shops %}
-              <form action="{% url 'blog:reservation' %}" method="post" class="col-md-4">
+          {% csrf_token %}
+              <form action="{% url 'blog:reservation' %}" class="col-md-4" method="post">
               {% csrf_token %}
-        <div class="col-md-4">
+{#        <div class="col-md-4">#}
           <div class="card mb-4 shadow-sm">
               <img src="{{x.image.url}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" >
 {#            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="{{x.image.url}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>#}
               <div class="card-body">
               <p class="card-text">{{ x.name }}</p>
+                  <input type="hidden" id="custId" name="custId" value={{ x.name }}>
               <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Reserve</button>
-                  <input type="hidden" id="custId" name="custId" value={{x.name}}>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Reserve</button>
                 <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
-        </div>
+{#        </div>#}
               </form>
           {% endfor %}
-    </div>
+            </div>
   </div>
   </div>
 </main>
