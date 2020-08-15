@@ -20,6 +20,20 @@ def users_view(request):
     barbershops = BarberShop.objects.all()
 
     return render(request, 'dashboard.html', context={'name': name,
+<<<<<<< HEAD
                                                       'shops': barbershops,
                                                       'role': role, })
+=======
+                                                      'shops': barbershops })
+def create_time_table(request):
+    username = None
+    if request.user.is_authenticated():
+        username = request.user.username
+    barber = request.POST['barber_name']
+    shop = request.POST['shop_name']
+    date = request.POST['date']
+    start_time = request.POST['start_time']
+    end_time = request.POST['end_time']
+    
+>>>>>>> a14d5596fb1d51ac9524f285dbf557ee6b781f4f
 
