@@ -21,7 +21,6 @@ def users_view(request):
 
     print(role)
     barbershops = BarberShop.objects.all()
-
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
                                                       'role': role})
