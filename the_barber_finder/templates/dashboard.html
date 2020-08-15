@@ -71,6 +71,12 @@
         <div class="username"  >
         <button class="username" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
       </div>
+        </div>
+      {% if role == "Barber" %}
+        <div class="username"  >
+        <button class="username" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
+      </div>
+      {% endif %}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
