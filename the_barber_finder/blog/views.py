@@ -13,7 +13,7 @@ def users_view(request):
     if name:
         print(name)
         person = Person.objects.filter(user=request.user)
-        print(person[0])
+        # print(person[0])
         r = Barber.objects.filter(user=person)
 
 
@@ -35,6 +35,8 @@ def users_view(request):
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
                                                       'role': role})
+
+
 def create_time_table(request):
     username = None
     barber_shop_id = None
@@ -50,7 +52,9 @@ def create_time_table(request):
     print (queryUser)
 
 
-
+def set_available_times(request):
+    #
+    return render(request, 'time-managing.html')
     
     
 
