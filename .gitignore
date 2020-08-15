@@ -1,116 +1,113 @@
-# Django #
-*.log
-*.pot
-*.pyc
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*/db.sqlite3
-media
+*.py[cod]
+*$py.class
 
-# Backup files # 
-*.bak 
+# C extensions
+*.so
 
-# If you are using PyCharm # 
-the_barber_finder_back_end/.idea/**/workspace.xml 
-the_barber_finder_back_end/.idea/**/tasks.xml 
-the_barber_finder_back_end/.idea/dictionaries 
-the_barber_finder_back_end/.idea/**/dataSources/ 
-the_barber_finder_back_end/.idea/**/dataSources.ids 
-the_barber_finder_back_end/.idea/**/dataSources.xml 
-the_barber_finder_back_end/.idea/**/dataSources.local.xml 
-the_barber_finder_back_end/.idea/**/sqlDataSources.xml 
-the_barber_finder_back_end/.idea/**/dynamic.xml 
-the_barber_finder_back_end/.idea/**/uiDesigner.xml 
-the_barber_finder_back_end/.idea/**/gradle.xml 
-the_barber_finder_back_end/.idea/**/libraries 
-the_barber_finder_back_end/*.iws /out/ 
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Python # 
-*.py[cod] 
-*$py.class 
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
-# Distribution / packaging 
-.Python build/ 
-develop-eggs/ 
-dist/ 
-downloads/ 
-eggs/ 
-.eggs/ 
-lib/ 
-lib64/ 
-parts/ 
-sdist/ 
-var/ 
-wheels/ 
-*.egg-info/ 
-.installed.cfg 
-*.egg 
-*.manifest 
-*.spec 
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Installer logs 
-pip-log.txt 
-pip-delete-this-directory.txt 
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
 
-# Unit test / coverage reports 
-htmlcov/ 
-.tox/ 
-.coverage 
-.coverage.* 
-.cache 
-.pytest_cache/ 
-nosetests.xml 
-coverage.xml 
-*.cover 
-.hypothesis/ 
+# Translations
+*.mo
+*.pot
 
-# Jupyter Notebook 
-.ipynb_checkpoints 
+# Django stuff:
+*.log
+local_settings.py
 
-# pyenv 
-.python-version 
+# Flask stuff:
+instance/
+.webassets-cache
 
-# celery 
-celerybeat-schedule.* 
+# Scrapy stuff:
+.scrapy
 
-# SageMath parsed files 
-*.sage.py 
+# Sphinx documentation
+docs/_build/
 
-# Environments 
-.env 
-.venv 
-env/ 
-venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/ 
+# PyBuilder
+target/
 
-# mkdocs documentation 
-/site 
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# mypy 
-.mypy_cache/ 
+# pyenv
+.python-version
 
-# Sublime Text # 
-*.tmlanguage.cache 
-*.tmPreferences.cache 
-*.stTheme.cache 
-*.sublime-workspace 
-*.sublime-project 
+# celery beat schedule file
+celerybeat-schedule
 
-# sftp configuration file 
-sftp-config.json 
+# SageMath parsed files
+*.sage.py
 
-# Package control specific files Package 
-Control.last-run 
-Control.ca-list 
-Control.ca-bundle 
-Control.system-ca-bundle 
-GitHub.sublime-settings 
+# dotenv
+.env
 
-# Visual Studio Code # 
-.vscode/* 
-!.vscode/settings.json 
-!.vscode/tasks.json 
-!.vscode/launch.json 
-!.vscode/extensions.json 
-.history
+# virtualenv
+.venv
+venv/
+ENV/
+.vscode
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+.DS_Store
+*.sqlite3
+media/
+*.pyc
+*.db
+*.pid
+# django migrations 
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
