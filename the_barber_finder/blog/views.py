@@ -13,8 +13,19 @@ def users_view(request):
     if name:
         
         person = Person.objects.filter(user=request.user)
+<<<<<<< HEAD
         is_barber = Barber.objects.filter(user=person)
         if is_barber != '':
+=======
+        # print(person[0])
+        r = Barber.objects.filter(user=person)
+
+
+        # st = print(len(r))
+        st = 1
+        role = ''
+        if st:
+>>>>>>> 9c48dadb3c1a5c8d13a8856d0e1bf694d38c6193
             role = "Barber"
         else:
             role = "Customer"
@@ -25,6 +36,8 @@ def users_view(request):
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
                                                       'role': role})
+
+
 def create_time_table(request):
     username = None
     barber_shop_id = None
@@ -40,7 +53,9 @@ def create_time_table(request):
     print (queryUser)
 
 
-
+def set_available_times(request):
+    #
+    return render(request, 'time-managing.html')
     
     
 
