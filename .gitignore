@@ -2,8 +2,8 @@
 *.log
 *.pot
 *.pyc
-the_barber_finder_back_end/**/__pycache__/
-the_barber_finder_back_end/db.sqlite3
+__pycache__/
+*/db.sqlite3
 media
 
 # Backup files # 
