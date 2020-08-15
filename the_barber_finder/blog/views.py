@@ -25,10 +25,11 @@ def create_time_table(request):
     username = None
     if request.user.is_authenticated():
         username = request.user.username
-    barber = request.POST['barber_name']
-    shop = request.POST['shop_name']
-    date = request.POST['date']
-    start_time = request.POST['start_time']
-    end_time = request.POST['end_time']
+    barber = request.POST.get('barbername')
+    shop = request.POST.get('shopname')
+    date = request.POST.get('date')
+    start_time = request.POST.get('start_time')
+    end_time = request.POST.get('end_time')
+    
     
 
