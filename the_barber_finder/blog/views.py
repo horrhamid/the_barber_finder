@@ -22,10 +22,15 @@ def users_view(request):
     print("role :")
 
     print(role)
+    # if role == "Barber":
+    #     reserved = Reserve.objects.filter(barber=)
+    reserved = Reserve.objects.all()
     barbershops = BarberShop.objects.all()
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
-                                                      'role': role})
+                                                      'role': role,
+                                                      'reserved': reserved})
+
 
 def check_barber(user):
     person = Person.objects.filter(user=user)
@@ -35,8 +40,10 @@ def check_barber(user):
     else:
         return False
 
+
 def set_av_time(request):
     return render(request, "time-managing_2.html")
+
 
 def set_available_times(request):
     #
@@ -77,7 +84,7 @@ def reserve_view(request):
         print(barber[0])
         #person = Person.objects.filter(user=barber[0])
         names.append(barber[0])
-    print (names)
+    print(names)
     return render(request, "reservation-choose-tim.html", context={'Barber': names})
 
 
@@ -91,6 +98,7 @@ def choose_subtime(request):
     print(shave_date)
     return render(request, "subtime_reserve.html", context={'shave_date': shave_date,
                                                             'barber_name': barber_name})
+
 
 def reserve_time(request):
     #add reservation into the table
@@ -145,6 +153,8 @@ def reserve_time(request):
             return HttpResponse("NOOO ! time is reserved")
     else:
         return HttpResponse("NOOO ! there is no available time")
+
+
 def calc_sec(in_time):
     x = time.strptime(str(in_time).split(',')[0],'%H:%M:%S')
     time_sec = datetime.timedelta(hours=x.tm_hour,minutes=x.tm_min,seconds=x.tm_sec).total_seconds()

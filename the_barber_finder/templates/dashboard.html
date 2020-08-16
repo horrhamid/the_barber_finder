@@ -69,9 +69,9 @@
         <i>Hi, {{ name }}</i>
       </div>
       <div class="btn-group">
-        <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
+        <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Sign In</button>
         {% if role == "Barber" %}
-        <button class="navbar-item btn btn-sm btn-outline-secondary"" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
+        <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:authentication:main' %}'" type="submit" >Manage Store</button>
         <button class="navbar-item btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'blog:set_time' %}'" type="submit" >Set Available</button>
         {% endif %}
       </div>
@@ -83,6 +83,7 @@
 <main role="main">
   <div class="album py-5 bg-light">
     <div class="container">
+    <h3 style="text-align: center; color: lightslategrey;  " >Barber Shops</h3>
     <div class="row">
           {% for x in shops %}
           {% csrf_token %}
@@ -105,6 +106,62 @@
               </form>
           {% endfor %}
             </div>
+
+        <hr style="border-top: grey 1px dashed">
+        <h3 style="text-align: center; color: lightslategrey;  " >Reserved</h3>
+        <div class="row" >
+        {% if role == "Barber" %}
+        {% for y in reserved %}
+          {% csrf_token %}
+              <form action="" class="col-md-4" method="post">
+              {% csrf_token %}
+{#        <div class="col-md-4">#}
+          <div class="card mb-4 shadow-sm">
+{#              <img src="{{x.image.url}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" >#}
+{#            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="{{x.image.url}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>#}
+              <div class="card-body">
+              <p class="card-text">{{ y.customer.user.user.username }}</p>
+              <p class="card-text">{{ y.date }}</p>
+              <p class="card-text">{{ y.sub_time }}</p>
+
+                  <input type="hidden" id="shop_id" name="shop_id" value= {{ x.id }}>
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Reserved</button>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+{#        </div>#}
+              </form>
+          {% endfor %}
+        {% elif role == "Customer" %}
+
+            {% for y in reserved %}
+          {% csrf_token %}
+              <form action="" class="col-md-4" method="post">
+              {% csrf_token %}
+{#        <div class="col-md-4">#}
+          <div class="card mb-4 shadow-sm">
+{#              <img src="{{x.image.url}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" >#}
+{#            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="{{x.image.url}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>#}
+              <div class="card-body">
+              <p class="card-text">{{ y.customer.user.user.username }}</p>
+              <p class="card-text">{{ y.date }}</p>
+              <p class="card-text">{{ y.sub_time }}</p>
+
+                  <input type="hidden" id="shop_id" name="shop_id" value= {{ x.id }}>
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Reserved</button>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+{#        </div>#}
+              </form>
+          {% endfor %}
+
+        {% endif %}
+        </div>
   </div>
   </div>
 </main>
