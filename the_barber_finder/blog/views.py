@@ -12,6 +12,7 @@ def users_view(request):
     name = None
     role = None
     name = request.user.username
+    reserved = None
     print("user name is :")
     print(name)
     if name == "admin":
@@ -19,14 +20,21 @@ def users_view(request):
     if name:
         if check_barber(request.user):
             role = "Barber"
+            person = Person.objects.filter(user=request.user)
+            barber = Barber.objects.filter(user=person[0])
+            reserved = Reserve.objects.filter(barber=barber[0])
         else:
             role = "Customer"
+            person = Person.objects.filter(user=request.user)
+            customer = Customer.objects.filter(user=person[0])
+            reserved = Reserve.objects.filter(customer=customer[0])
     print("role :")
 
     print(role)
     # if role == "Barber":
     #     reserved = Reserve.objects.filter(barber=)
-    reserved = Reserve.objects.all()
+
+   
     barbershops = BarberShop.objects.all()
     return render(request, 'dashboard.html', context={'name': name,
                                                       'shops': barbershops,
