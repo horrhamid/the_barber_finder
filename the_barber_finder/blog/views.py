@@ -82,12 +82,30 @@ def reserve_view(request):
 
 
 def choose_subtime(request):
+    print("we are in choose_subtime")
     shave_date = request.POST.get("date")
     barber_name = request.POST.get("barber_name")
     print("barber name:")
     print(barber_name)
-    print("shave_date")
+    print("shave_date:")
     print(shave_date)
+    return render(request, "subtime_reserve.html", context={'shave_date': shave_date,
+                                                            'barber_name': barber_name})
+
+def reserve_time(request):
+    #add reservation into the table
+    reserved = False
+    print("we are in reserve_time")
+    shave_date = request.POST.get("shave_date")
+    barber_name = request.POST.get("barber_name")
+    selected_time = request.POST.get("time")
+    selected_time+=":00"
+    print("barber name:")
+    print(barber_name)
+    print("shave_date:")
+    print(shave_date)
+    print("selected time:")
+    print(selected_time)
     queryUser = User.objects.filter(username=barber_name)
     queryPerson = Person.objects.filter(user=queryUser[0])
     queryBarber = Barber.objects.filter(user=queryPerson[0])
@@ -101,10 +119,12 @@ def choose_subtime(request):
     for i in range(1, 74):
         for res in respons:
             #move on times in this spec day and calculate subtimes
-            if (calc_sec(res.start_time) <=  1200 * i) and (1200 * i - 1 <= calc_sec(res.end_time)):
-                print (i)
-    return render(request, "subtime_reserve.html", context={'date': shave_date})
-
+            if (calc_sec(res.start_time) <=  calc_sec(selected_time)) and (calc_sec(selected_time) <= calc_sec(res.end_time)-1200):
+                reserved = True
+    if reserved:
+        return HttpResponse("DONE !")
+    else:
+        return HttpResponse("NOOO !")
 def calc_sec(in_time):
     x = time.strptime(str(in_time).split(',')[0],'%H:%M:%S')
     time_sec = datetime.timedelta(hours=x.tm_hour,minutes=x.tm_min,seconds=x.tm_sec).total_seconds()
