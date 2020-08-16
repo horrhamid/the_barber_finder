@@ -4,7 +4,7 @@ from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
 import datetime
 import time
-from .models import BarberShop, Barber, Person, Customer, TimeTable
+from .models import BarberShop, Barber, Person, Customer, TimeTable, Reserve
 # Create your views here.
 
 
@@ -95,6 +95,11 @@ def choose_subtime(request):
 def reserve_time(request):
     #add reservation into the table
     reserved = False
+    username = None
+    if request.user.is_authenticated:
+        username = request.user
+    else:
+        return HttpResponse("NOOO !")
     print("we are in reserve_time")
     shave_date = request.POST.get("shave_date")
     barber_name = request.POST.get("barber_name")
@@ -121,10 +126,25 @@ def reserve_time(request):
             #move on times in this spec day and calculate subtimes
             if (calc_sec(res.start_time) <=  calc_sec(selected_time)) and (calc_sec(selected_time) <= calc_sec(res.end_time)-1200):
                 reserved = True
+    #check this subtime is not in reserved table
     if reserved:
-        return HttpResponse("DONE !")
+        person = Person.objects.filter(user=username)
+        user_barber = User.objects.filter(username=barber_name)
+        person_barber = Person.objects.filter(user=user_barber[0])
+        customer = Customer.objects.filter(user=person[0])
+        barber = Barber.objects.filter(user=person_barber[0])
+        store = BarberShop.objects.filter(owner=barber[0])
+        stored_time = calc_sec(selected_time)/1200
+        queryReserve = Reserve.objects.filter(customer__in=customer, store__in=store, barber__in=barber, date=shave_date, sub_time=stored_time).count()
+        print (queryReserve)
+        if queryReserve == 0:
+            reserve = Reserve(customer=customer[0], store=store[0], barber=barber[0], date=shave_date, sub_time=stored_time)
+            reserve.save()
+            return HttpResponse("DONE !")
+        else:
+            return HttpResponse("NOOO ! time is reserved")
     else:
-        return HttpResponse("NOOO !")
+        return HttpResponse("NOOO ! there is no available time")
 def calc_sec(in_time):
     x = time.strptime(str(in_time).split(',')[0],'%H:%M:%S')
     time_sec = datetime.timedelta(hours=x.tm_hour,minutes=x.tm_min,seconds=x.tm_sec).total_seconds()
