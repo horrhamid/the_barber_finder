@@ -14,6 +14,8 @@ def users_view(request):
     name = request.user.username
     print("user name is :")
     print(name)
+    if name == "admin":
+        return HttpResponse("LOGOUT needed!")
     if name:
         if check_barber(request.user):
             role = "Barber"
@@ -107,7 +109,7 @@ def reserve_time(request):
     if request.user.is_authenticated:
         username = request.user
     else:
-        return HttpResponse("NOOO !")
+        return HttpResponse("NOOO ! login needed")
     print("we are in reserve_time")
     shave_date = request.POST.get("shave_date")
     barber_name = request.POST.get("barber_name")
