@@ -2,6 +2,8 @@
 # Create your views here.
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
+import datetime
+import time
 from .models import BarberShop, Barber, Person, Customer, TimeTable
 # Create your views here.
 
@@ -65,13 +67,45 @@ def set_available_times(request):
 
 
 def reserve_view(request):
+    names = []
     shop = request.POST.get('shop_id')
-    print(shop)
-    barberlist = BarberShop.objects.values_list('barbers').filter(id=shop)
-    print(barberlist)
-    return render(request, "reservation-choose-tim.html", context={'Barber': barberlist})
+    #print(shop)
+    barberlist_ids = BarberShop.objects.values_list('barbers').filter(id=shop)
+    for x in barberlist_ids:
+        print (x[0])
+        barber = Barber.objects.filter(id=x[0])
+        print(barber[0])
+        #person = Person.objects.filter(user=barber[0])
+        names.append(barber[0])
+    print (names)
+    return render(request, "reservation-choose-tim.html", context={'Barber': names})
 
 
 def choose_subtime(request):
-    dat = request.POST.get("date")
-    return render(request, "time-managing_222_1.html", context={'date': dat})
+    shave_date = request.POST.get("date")
+    barber_name = request.POST.get("barber_name")
+    print("barber name:")
+    print(barber_name)
+    print("shave_date")
+    print(shave_date)
+    queryUser = User.objects.filter(username=barber_name)
+    queryPerson = Person.objects.filter(user=queryUser[0])
+    queryBarber = Barber.objects.filter(user=queryPerson[0])
+    print (str(queryBarber))
+    queryset = TimeTable.objects.filter(barber=queryBarber[0],date= shave_date ).order_by('start_time')
+    print (str(queryset))
+    respons = queryset
+    subtime_start = datetime.time(int(0), int(0), int(1))
+    time_sec = calc_sec(subtime_start)
+    #print (time_sec)
+    for i in range(1, 74):
+        for res in respons:
+            #move on times in this spec day and calculate subtimes
+            if (calc_sec(res.start_time) <=  1200 * i) and (1200 * i - 1 <= calc_sec(res.end_time)):
+                print (i)
+    return render(request, "subtime_reserve.html", context={'date': shave_date})
+
+def calc_sec(in_time):
+    x = time.strptime(str(in_time).split(',')[0],'%H:%M:%S')
+    time_sec = datetime.timedelta(hours=x.tm_hour,minutes=x.tm_min,seconds=x.tm_sec).total_seconds()
+    return time_sec

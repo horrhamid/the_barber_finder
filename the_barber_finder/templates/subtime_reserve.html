@@ -47,6 +47,7 @@
     <link href="{% static 'css/album.css' %}" rel="stylesheet">
   </head>
   <body>
+    <p>{{ date }}</p>
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -141,7 +142,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
     <script>
-      const timepicker = new TimePicker(['time' , 'time2'], {
+      const timepicker = new TimePicker(['time'], {
       lang: 'en',
       theme: 'dark'
     });
