@@ -14,6 +14,8 @@ def users_view(request):
     name = request.user.username
     print("user name is :")
     print(name)
+    if name == "admin":
+        return HttpResponse("LOGOUT needed!")
     if name:
         if check_barber(request.user):
             role = "Barber"
