@@ -86,7 +86,7 @@
     <div class="row">
           {% for x in shops %}
           {% csrf_token %}
-              <form action="{% url 'blog:reservation' %}" class="col-md-4" method="post">
+              <form action="{% url 'blog:reserve_barber' %}" class="col-md-4" method="post">
               {% csrf_token %}
 {#        <div class="col-md-4">#}
           <div class="card mb-4 shadow-sm">

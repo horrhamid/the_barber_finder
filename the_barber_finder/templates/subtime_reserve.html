@@ -47,6 +47,7 @@
     <link href="{% static 'css/album.css' %}" rel="stylesheet">
   </head>
   <body>
+    <p>{{ date }}</p>
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -95,8 +96,8 @@
             <div class="container-fluid">
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-12">
-              <form method="post">
-                
+              <form method="post" action="{% url 'blog:reserve_time' %}">
+                  {% csrf_token %}
                 <div class="form-group ">
                   <label class="control-label requiredField" for="number1">
                     Choose subtime
@@ -105,7 +106,9 @@
                     </span>
                   </label>
                   <div>
-                    <input type="text" id="time" placeholder="Time">
+                    <input type="text" id="time" name="time" placeholder="Time">
+                    <input type="hidden" id="shave_date" name="shave_date" value= {{ shave_date }}>
+                    <input type="hidden" id="barber_name" name="barber_name" value= {{ barber_name }}>
                   </div>
                 </div>
 
@@ -141,7 +144,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
     <script>
-      const timepicker = new TimePicker(['time' , 'time2'], {
+      const timepicker = new TimePicker(['time'], {
       lang: 'en',
       theme: 'dark'
     });
